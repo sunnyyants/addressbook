@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <h1>Listing abcs</h1>
+
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Add Friend</th>
+        <th>Delete Friend</th>
+
+
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <td class="info"><%= user.name %></td>
+            <td class="success"><%=user.email%></td>
+            <td class="warning"><%=user.phone%></td>
+            <td class="active"><%= link_to 'Add Friend' %></td>
+            <td class="danger"><%= link_to 'Delete Friend' %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>
