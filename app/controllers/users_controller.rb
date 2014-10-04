@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:show, :edit, :update]
   def new
     @user = User.new
   end
@@ -12,11 +14,36 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   def index
     @users = User.all
   end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :phone)
+  def update
+
+
+    if @user.update_attributes(user_params_without_password)
+      redirect_to @user, :notice => "Updated informations successfully!"
+    else
+      redirect_to edit_user_path(@user), :notice => "Update Failed! Email Address or Phone number existed..."
+    end
   end
+
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :phone)
+    end
+
+    def user_params_without_password
+      params.require(:user).permit(:name,:email,:phone)
+    end
 end
