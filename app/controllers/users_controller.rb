@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update]
+
+  before_filter :require_login, only: [:update, :edit,:index,:update]
   def new
     @user = User.new
   end

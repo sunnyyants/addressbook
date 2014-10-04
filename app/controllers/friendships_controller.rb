@@ -1,6 +1,7 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
 
+  before_filter :require_login, only: [:new, :create, :update, :destroy,:edit]
   # GET /friendships
   # GET /friendships.json
   def index
