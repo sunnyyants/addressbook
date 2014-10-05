@@ -19,10 +19,11 @@
 
 $(document).ready(function(){
 
-    $('.lightbox').click(function(){
-        $('.backdrop, .box').animate({'opacity':'.50'}, 300, 'linear');
-        $('.box').animate({'opacity':'1.00'}, 300, 'linear');
-        $('.backdrop, .box').css('display', 'block');
+
+    $('#searchNow').click(function(){
+        $('.backdrop, #searchBox').animate({'opacity':'.50'}, 300, 'linear');
+        $('#searchBox').animate({'opacity':'1.00'}, 300, 'linear');
+        $('.backdrop,  #searchBox').css('display', 'block');
     });
 
     $('.close').click(function(){
@@ -33,11 +34,30 @@ $(document).ready(function(){
         close_box();
     });
 
+    // pagination javascript
+
+    $('#friends').on('click','.flickr_pagination a',function(){
+        $.get(this.href, null, null, "script");
+        return false;
+    });
+
+    $('#results').on('click','.flickr_pagination a',function(){
+        $.get(this.href, null, null, "script");
+        return false;
+    });
+
+    // search ajax request
+    $('#searchForm').on('submit',function(){
+        var valueToSubmit = $(this).serialize();
+        $.get(this.action, valueToSubmit,null,"script");
+        return false;
+    })
 });
 
 function close_box()
 {
-    $('.backdrop, .box').animate({'opacity':'0'}, 300, 'linear', function(){
-        $('.backdrop, .box').css('display', 'none');
+    $('.backdrop,  #searchBox').animate({'opacity':'0'}, 300, 'linear', function(){
+        $('.backdrop,  #searchBox').css('display', 'none');
     });
 }
+

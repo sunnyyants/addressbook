@@ -3,7 +3,7 @@
 <head>
   <title>AddressBook</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' 'jquery'=> true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,7 +24,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-            <li><%=link_to "Welcome:" + current_user.name, current_user%></a></li>
+            <li><a>Welcome: <%=current_user.name%></a></li>
             <li><%=link_to "Log out", logout_path%></li>
             </ul>
             <form class="navbar-form navbar-right">

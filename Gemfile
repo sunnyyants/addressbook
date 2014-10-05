@@ -43,3 +43,7 @@ gem 'sorcery'
 gem 'autoprefixer-rails'
 
 gem 'bootstrap-sass'
+
+gem 'will_paginate', '~> 3.0'
+
+gem 'best_in_place'

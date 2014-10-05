@@ -1,0 +1,21 @@
+<table class="table group">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Delete Friend</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @current_friendships.each do |friendship| %>
+    <tr>
+        <td><%=friendship.friend.name%></td>
+        <td><%=friendship.friend.email%></td>
+        <td><%=friendship.friend.phone%></td>
+        <td><%=link_to "Delete", friendship, method: :delete%></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+<%= will_paginate @current_friendships, class:"flickr_pagination"%>

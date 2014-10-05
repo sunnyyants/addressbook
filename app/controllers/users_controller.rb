@@ -2,7 +2,10 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update]
 
+  before_action :get_friendships, only: [:show]
+
   before_filter :require_login, only: [:update, :edit,:index,:update]
+
   def new
     @user = User.new
   end
@@ -23,11 +26,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if params[:search]
+      @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 2, :page => params[:page])
+    else
+      @users = User.all.paginate(:per_page => 2, :page => params[:page])
+    end
   end
 
   def update
-
 
     if @user.update_attributes(user_params_without_password)
       redirect_to @user, :notice => "Updated informations successfully!"
@@ -47,5 +53,9 @@ class UsersController < ApplicationController
 
     def user_params_without_password
       params.require(:user).permit(:name,:email,:phone)
+    end
+
+    def get_friendships
+      @current_friendships = current_user.friendships.paginate(:per_page => 1, :page => params[:page])
     end
 end

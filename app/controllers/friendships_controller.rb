@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
       flash[:notice] = "Successfully created friendship"
-      redirect_to root_url
+      redirect_to current_user
     else
       flash[:notice] = "Unable created friendship"
       redirect_to root_url

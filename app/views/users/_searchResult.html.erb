@@ -1,0 +1,21 @@
+<% if @users %>
+    <div>
+      <div class="col-md-12">
+        <div class="col-md-3"><p><b>Name</b></p></div>
+        <div class="col-md-3"><p><b>Email</b></p></div>
+        <div class="col-md-3"><p><b>Phone</b></p></div>
+        <div class="col-md-3"><p><b>Add Friend</b></p></div>
+      </div>
+      <% @users.each do |user| %>
+          <div class="col-md-12 friendInfo">
+            <div class="col-md-3"><%= user.name %></div>
+            <div class="col-md-3"><p><%= user.email %></p></div>
+            <div class="col-md-3"><p><%= user.phone %></p></div>
+            <div class="col-md-3"><p><%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post %></p></div>
+          </div>
+      <% end %>
+      <div class="col-md-12">
+        <%= will_paginate @users, class:"flickr_pagination"%>
+      </div>
+    </div>
+<% end %>

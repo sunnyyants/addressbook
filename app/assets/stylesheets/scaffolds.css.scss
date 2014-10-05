@@ -21,7 +21,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+//    color: #666;
   }
   &:hover {
     color: #fff;
@@ -41,8 +41,8 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #B00100;
+//  display: table;
 }
 
 #error_explanation {
