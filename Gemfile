@@ -46,4 +46,4 @@ gem 'bootstrap-sass'
 
 gem 'will_paginate', '~> 3.0'
 
-gem 'best_in_place'
+gem 'best_in_place', github: 'bernat/best_in_place'

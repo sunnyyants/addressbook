@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
+//= require best_in_place.purr
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
@@ -48,10 +50,20 @@ $(document).ready(function(){
 
     // search ajax request
     $('#searchForm').on('submit',function(){
-        var valueToSubmit = $(this).serialize();
-        $.get(this.action, valueToSubmit,null,"script");
+        return false;
+    });
+
+    $("#contacts").keyup(function(){
+        if($(this).val().length > 0) {
+            var valueToSubmit = $(this).serialize();
+            var url = $(this).closest('form').attr('action');
+            $.get(url, valueToSubmit, null, "script");
+        }else{
+            $("#results").empty();
+        }
         return false;
     })
+
 });
 
 function close_box()

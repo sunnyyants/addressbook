@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if params[:search]
       @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 2, :page => params[:page])
     else
-      @users = User.all.paginate(:per_page => 2, :page => params[:page])
+      @users = []
     end
   end
 

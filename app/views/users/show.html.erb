@@ -2,14 +2,14 @@
   <div class="col-md-6">
     <legend>User Information</legend>
     <div class="list-group">
-      <a href="#" class="list-group-item active">
-        <strong>Name: </strong><%= @user.name %>
+      <a href="#" class="list-group-item">
+        <strong>Name: </strong><%=@user.name %>
       </a>
       <a href="#" class="list-group-item">
-        <Strong>Email: </Strong><%= @user.email%>
+        <Strong>Email: </Strong><%=@user.email%>
       </a>
       <a href="#" class="list-group-item">
-        <strong>Phone: </strong><%= @user.phone%>
+        <strong>Phone: </strong><%=@user.phone%>
       </a>
     </div>
   </div>
@@ -18,7 +18,7 @@
     <%= link_to 'Update Info',edit_user_path(@user), class:"btn btn-block btn-default"%>
     <button class="btn btn-block btn-default" id="searchNow">Search Now</button>
     <%= link_to 'Back', home_index_path, class:"btn btn-block btn-default"%>
-
+    <p><%=@userList%></p>
   </div>
 
   <div class="backdrop"></div>
@@ -28,7 +28,7 @@
       <div>
         <legend>Search Contacts</legend>
         <%=form_tag users_path, class:"form group", id: "searchForm",:method => 'get' do%>
-            <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search contacts..." %>
+            <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search contacts..." , id: "contacts"%>
         <% end %>
       </div>
       <div id="results">
