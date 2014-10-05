@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :friendships
   resources :users
   resources :sessions
-  resources :friendships
+
+
 
   get 'home/index'
 

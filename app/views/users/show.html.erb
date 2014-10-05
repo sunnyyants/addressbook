@@ -3,13 +3,13 @@
     <legend>User Information</legend>
     <div class="list-group">
       <a href="#" class="list-group-item">
-        <strong>Name: </strong><%=@user.name %>
+        <strong>Name: </strong><%=best_in_place @user, :name, :type => :input%>
       </a>
       <a href="#" class="list-group-item">
-        <Strong>Email: </Strong><%=@user.email%>
+        <Strong>Email: </Strong><%=best_in_place @user, :email, :type => :input%>
       </a>
       <a href="#" class="list-group-item">
-        <strong>Phone: </strong><%=@user.phone%>
+        <strong>Phone: </strong><%=best_in_place @user, :phone, :type => :input%>
       </a>
     </div>
   </div>
@@ -18,7 +18,6 @@
     <%= link_to 'Update Info',edit_user_path(@user), class:"btn btn-block btn-default"%>
     <button class="btn btn-block btn-default" id="searchNow">Search Now</button>
     <%= link_to 'Back', home_index_path, class:"btn btn-block btn-default"%>
-    <p><%=@userList%></p>
   </div>
 
   <div class="backdrop"></div>

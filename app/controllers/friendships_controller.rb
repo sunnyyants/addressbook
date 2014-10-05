@@ -31,7 +31,7 @@ class FriendshipsController < ApplicationController
       redirect_to current_user
     else
       flash[:notice] = "Unable created friendship"
-      redirect_to root_url
+      redirect_to current_user
     end
   end
 
@@ -56,7 +56,7 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     respond_to do |format|
       format.html { redirect_to current_user, notice: 'Friendship was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { }
     end
   end
 

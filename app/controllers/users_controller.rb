@@ -34,28 +34,31 @@ class UsersController < ApplicationController
   end
 
   def update
-
-    if @user.update_attributes(user_params_without_password)
-      redirect_to @user, :notice => "Updated informations successfully!"
-    else
-      redirect_to edit_user_path(@user), :notice => "Update Failed! Email Address or Phone number existed..."
+    respond_to do |format|
+      if @user.update_attributes(user_params_without_password)
+        format.html { redirect_to(@user, :notice => 'Updated informations successfully!') }
+        format.json { respond_with_bip(@user) }
+      else
+        format.html { redirect_to(edit_user_path(@user), :notice => "Update Failed! Email Address or Phone number existed...") }
+        format.json { respond_with_bip(@user) }
+      end
     end
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :phone)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :phone)
+  end
 
-    def user_params_without_password
-      params.require(:user).permit(:name,:email,:phone)
-    end
+  def user_params_without_password
+    params.require(:user).permit(:name,:email,:phone)
+  end
 
-    def get_friendships
-      @current_friendships = current_user.friendships.paginate(:per_page => 1, :page => params[:page])
-    end
+  def get_friendships
+    @current_friendships = current_user.friendships.paginate(:per_page => 3, :page => params[:page])
+  end
 end

@@ -1,0 +1,21 @@
+
+<%=form_for(@user, class:"form group", role:"form") do |f| %>
+    <%if @user.errors.any? %>
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">
+          &times;</span><span class="sr-only">Close</span></button>
+          <h2>From is invalid</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <h5 class="list-group-item-heading"><%= f.text_field(:name, class:"form-control", placeholder:"Name") %><small>-Current User</small></h5>
+    <p class="list-group-item-text"><small>Email: <%= f.text_field(:email, class:"form-control", placeholder:"Email Address")%></small></p>
+    <p class="list-group-item-text"><small>Phone: <%= f.text_field(:phone, class:"form-control", placeholder:"Phone Number")%></small></p>
+
+    <%=f.submit("Update", class:"btn btn-block btn-primary")%>
+<% end %>

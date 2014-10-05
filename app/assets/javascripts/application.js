@@ -62,8 +62,32 @@ $(document).ready(function(){
             $("#results").empty();
         }
         return false;
-    })
+    });
 
+    $(document).on('click','.addFriend',function(){
+        var friendId = $(this).data('friend-id');
+        var url = "/friendships?friend_id=" + friendId;
+        $.ajax({
+            url:url,
+            type:'POST'
+        }).success(function(data){
+            renderFriends(data);
+        });
+    });
+
+    $(document).on('click','.unFriend',function(){
+        var friendshipId = $(this).data('friendship-id');
+        var url = "/friendships/" + friendshipId;
+        $.ajax({
+            url:url,
+            dataType: "html",
+            data: {"_method":"delete"},
+            type:'POST',
+            success:function(data){
+                renderFriends(data);
+            }
+        })
+    });
 });
 
 function close_box()
@@ -71,5 +95,12 @@ function close_box()
     $('.backdrop,  #searchBox').animate({'opacity':'0'}, 300, 'linear', function(){
         $('.backdrop,  #searchBox').css('display', 'none');
     });
+}
+
+function renderFriends(data)
+{
+    var $response = $(data);
+    var $friends = $response.filter("div.container").find('#friends')[0];
+    $('#friends').html($friends)
 }
 

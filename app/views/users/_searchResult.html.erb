@@ -1,19 +1,23 @@
 <% if @users %>
     <div>
-      <div class="col-md-12">
-        <div class="col-md-3"><p><b>Name</b></p></div>
-        <div class="col-md-3"><p><b>Email</b></p></div>
-        <div class="col-md-3"><p><b>Phone</b></p></div>
-        <div class="col-md-3"><p><b>Add Friend</b></p></div>
+      <div class="list-group">
+        <% @users.each do |user| %>
+            <% if user.id == current_user.id %>
+                <a href="#" class="list-group-item" id="bbb" data-user-id="<%=user.id%>">
+                  <h5 class="list-group-item-heading"><%= user.name %> <small>-Current User</small></h5>
+                  <p class="list-group-item-text"><small>Email: <%= user.email %></small></p>
+                  <p class="list-group-item-text"><small>Phone: <%= user.phone %></small></p>
+                </a>
+            <% else %>
+                <a  class="list-group-item">
+                  <h5 class="list-group-item-heading"><%= user.name %><span class="pull-right">
+                    <button data-friend-id="<%= user.id%>" class="btn btn-xs btn-primary addFriend">Add friend</button></span></h5>
+                  <p class="list-group-item-text"><small>Email: <%= user.email %></small></p>
+                  <p class="list-group-item-text"><small>Phone: <%= user.phone %></small></p>
+                </a>
+            <% end %>
+        <% end %>
       </div>
-      <% @users.each do |user| %>
-          <div class="col-md-12 friendInfo">
-            <div class="col-md-3"><%= user.name %></div>
-            <div class="col-md-3"><p><%= user.email %></p></div>
-            <div class="col-md-3"><p><%= user.phone %></p></div>
-            <div class="col-md-3"><p><%= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post %></p></div>
-          </div>
-      <% end %>
       <div class="col-md-12">
         <%= will_paginate @users, class:"flickr_pagination"%>
       </div>
