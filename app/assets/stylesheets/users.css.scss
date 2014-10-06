@@ -2,31 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin position ($position, $top, $left, $right, $bottom, $width, $height, $background){
+  position:$position;
+  top:$top;
+  left:$left;
+  right:$right;
+  bottom: $bottom;
+  width:$width;
+  height:$height;
+  background:$background;
+}
+
 
 .backdrop
 {
-  position:absolute;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:100%;
-  background:#000;
+  @include position(absolute, 0px, 0px, 0px, 0px, 100%, 100%, #000);
   opacity: .0;
   filter:alpha(opacity=0);
   z-index:50;
   display:none;
 }
 
-#users, #searchBox
+#searchBox
 {
-  position:absolute;
-  top:10%;
-  left:10%;
-  right:10%;
-  bottom:10%;
-  width:80%;
-  height:80%;
-  background:#ffffff;
+  @include position(absolute, 10%, 10%, 10%, 10%, 80%, 80%, #fff);
   z-index:51;
   padding:10px;
   -webkit-border-radius: 5px;

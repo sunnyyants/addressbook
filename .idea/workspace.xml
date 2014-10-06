@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a54ab4b-8f31-464f-9703-50e68658261c" name="Default" comment="update readme">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/pagination.sass" afterPath="$PROJECT_DIR$/app/assets/stylesheets/pagination.sass" />
+    <list default="true" id="2a54ab4b-8f31-464f-9703-50e68658261c" name="Default" comment="clean files">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/users.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/users.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -92,8 +91,8 @@
       <file leaf-file-name="users.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8333333" vertical-offset="240" max-vertical-offset="765">
-              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.37037036" vertical-offset="90" max-vertical-offset="750">
+              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -834,7 +833,11 @@
       <created>1412617095808</created>
       <updated>1412617095808</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="clean files">
+      <created>1412617342036</created>
+      <updated>1412617342036</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -889,7 +892,8 @@
     <MESSAGE value="convert user erb files to haml" />
     <MESSAGE value="fixed bugs" />
     <MESSAGE value="update readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
+    <MESSAGE value="clean files" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean files" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1262,8 +1266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8333333" vertical-offset="240" max-vertical-offset="765">
-          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.37037036" vertical-offset="90" max-vertical-offset="750">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
           <folding />
         </state>
       </provider>
