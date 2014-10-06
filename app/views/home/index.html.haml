@@ -1,0 +1,11 @@
+.container
+  .jumbotron
+    %h1 Online Address Book
+    %p A Ruby On Rail online address book application
+    %p Environment: Ruby: 2.1.3 / Rails: 4.1.6
+    %p
+      - if current_user
+        = link_to "Go to Panal >>", current_user, class: "btn btn-lg btn-success"
+      - else
+        = link_to "Sign up >>", signup_path, class:"btn btn-lg btn-warning"
+        = link_to "Sign in >>", signin_path, class:"btn btn-lg btn-warning"
