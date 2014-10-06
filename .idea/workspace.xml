@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a54ab4b-8f31-464f-9703-50e68658261c" name="Default" comment="convert user erb files to haml">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_friends.html.haml" afterPath="$PROJECT_DIR$/app/views/users/_friends.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/friendships_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/friendships_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.haml" afterPath="$PROJECT_DIR$/app/views/home/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.haml" afterPath="$PROJECT_DIR$/app/views/users/new.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.haml" afterPath="$PROJECT_DIR$/app/views/users/show.html.haml" />
+    <list default="true" id="2a54ab4b-8f31-464f-9703-50e68658261c" name="Default" comment="fixed bugs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AddressBook.iws" />
@@ -843,7 +837,11 @@
       <created>1412613982255</created>
       <updated>1412613982255</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed bugs">
+      <created>1412616511162</created>
+      <updated>1412616511162</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -896,7 +894,8 @@
     <MESSAGE value="little refactor" />
     <MESSAGE value="little refactor UI" />
     <MESSAGE value="convert user erb files to haml" />
-    <option name="LAST_COMMIT_MESSAGE" value="convert user erb files to haml" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

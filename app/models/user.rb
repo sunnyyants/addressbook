@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i , message: "Wrong email format..."
 
-  validates_length_of :phone, :maximum => 12, minimum: 10
+  validates_length_of :phone, :maximum => 12, :minimum =>  10
 
   validates_uniqueness_of :email ,:phone
 
