@@ -19,39 +19,25 @@
       <a class="navbar-brand" href="#">Address book</a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
             <li><a>Welcome: <%=current_user.name%></a></li>
-            <li><%=link_to "Log out", logout_path%></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-              <input type="text" class="form-control" placeholder="Search Contacts...">
-            </form>
-        <% else %>
-            <li><%=link_to "Sign up", signup_path%></li>
-            <li><%=link_to "log in", login_path%></li>
-            </ul>
+            <li><%=link_to "Sign out", signout_path%></li>
         <%end%>
-    </div><!--/.nav-collapse -->
+      </ul>
+    </div>
   </div>
 </div>
-
 <div class="container">
-    <% flash.each do |name,msg| %>
+  <% flash.each do |name,msg| %>
       <div class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">
           &times;</span><span class="sr-only">Close</span></button>
-      <%=content_tag :div, msg, :id => "flash_#{name}"%>
+        <%=content_tag :div, msg, :id => "flash_#{name}"%>
       </div>
-    <% end %>
+  <% end %>
 </div>
-
 <%= yield %>
-
-
 
 </body>
 </html>

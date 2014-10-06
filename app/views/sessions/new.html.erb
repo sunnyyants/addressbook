@@ -14,9 +14,8 @@
           <%= check_box_tag :remember_me, 1, params[:remember_me] %>
           <%= label_tag :remember_me %>
         </div>
-
-        <%= submit_tag "Log in", class:"btn btn-lg btn-primary btn-block"%>
+        <div class="col-md-6"><%= submit_tag "Log in", class:"btn btn-primary btn-block"%></div>
+        <div class="col-md-6"><%= link_to "Back", root_url, class:"btn btn-primary btn-block"%></div>
     <% end %>
   </div>
-
 </div>

@@ -72,6 +72,7 @@ $(document).ready(function(){
             type:'POST'
         }).success(function(data){
             renderFriends(data);
+            reloadSearch();
         });
     });
 
@@ -85,22 +86,27 @@ $(document).ready(function(){
             type:'POST',
             success:function(data){
                 renderFriends(data);
+                reloadSearch();
             }
         })
     });
 });
 
-function close_box()
-{
+function close_box(){
     $('.backdrop,  #searchBox').animate({'opacity':'0'}, 300, 'linear', function(){
         $('.backdrop,  #searchBox').css('display', 'none');
     });
 }
 
-function renderFriends(data)
-{
+function renderFriends(data){
     var $response = $(data);
     var $friends = $response.filter("div.container").find('#friends')[0];
     $('#friends').html($friends)
 }
 
+function reloadSearch (){
+    var $searchInput = $("#contacts");
+    var reflashValue = $searchInput.serialize();
+    var reflashUrl = $searchInput.closest('form').attr('action');
+    $.get(reflashUrl, reflashValue, null, "script");
+}

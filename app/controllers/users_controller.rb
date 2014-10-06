@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   before_action :get_friendships, only: [:show]
 
-  before_action :return_current_user, only: [:index]
+  before_action :return_current_users_friends, only: [:index]
 
   before_filter :require_login, only: [:update, :edit,:index,:update]
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to root_url, :notice => "Signed up successfully!"
     else
       render :new
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:search]
-      @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 3, :page => params[:page])
+      @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 6, :page => params[:page])
     else
       @users = []
     end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update_attributes(user_params_without_password)
-        format.html { redirect_to(@user, :notice => 'Updated informations successfully!') }
+        format.html { redirect_to(@user) }
         format.json { respond_with_bip(@user) }
       else
         format.html { redirect_to(edit_user_path(@user), :notice => "Update Failed! Email Address or Phone number existed...") }
@@ -56,6 +56,15 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def return_current_users_friends
+    @user = current_user
+    @users_friends = []
+    @user.friendships.each do |f|
+      @users_friends.append(f.friend.id)
+    end
+  end
+
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :phone)
   end
@@ -65,6 +74,7 @@ class UsersController < ApplicationController
   end
 
   def get_friendships
-    @current_friendships = current_user.friendships.paginate(:per_page => 3, :page => params[:page])
+    @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
   end
+
 end

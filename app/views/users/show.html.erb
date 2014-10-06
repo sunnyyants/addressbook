@@ -1,27 +1,23 @@
 <div class="container">
-  <div class="col-md-6">
-    <legend>User Information</legend>
+  <div class="col-md-8 col-md-offset-2">
+    <h1 class="text-center">User Information</h1>
     <div class="list-group">
       <a href="#" class="list-group-item">
-        <strong>Name: </strong><%=best_in_place @user, :name, :type => :input%>
+        <strong>Name: </strong><%= @user.name%>
       </a>
       <a href="#" class="list-group-item">
-        <Strong>Email: </Strong><%=best_in_place @user, :email, :type => :input%>
+        <Strong>Email: </Strong><%=@user.email%>
       </a>
       <a href="#" class="list-group-item">
-        <strong>Phone: </strong><%=best_in_place @user, :phone, :type => :input%>
+        <strong>Phone: </strong><%=@user.phone%>
       </a>
     </div>
   </div>
-  <div class="col-md-6">
-    <legend>Menus</legend>
-    <%= link_to 'Update Info',edit_user_path(@user), class:"btn btn-block btn-default"%>
-    <button class="btn btn-block btn-default" id="searchNow">Search Now</button>
-    <%= link_to 'Back', home_index_path, class:"btn btn-block btn-default"%>
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <button class="btn btn-default" style="width: 30%; height:30%; margin-top:10%" id="searchNow"><p class="lead text-center">Click me start!</p></button>
+    <div><%=@users_friends%></div>
   </div>
-
   <div class="backdrop"></div>
-
   <div id="searchBox"><div class="close col-md-12">x</div>
     <div class="col-md-6">
       <div>

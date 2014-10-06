@@ -2,7 +2,7 @@
   <% @current_friendships.each do |friendship| %>
       <a  class="list-group-item">
         <h5 class="list-group-item-heading"><%=friendship.friend.name %><span class="pull-right">
-          <button data-friendship-id="<%=friendship.id%>" class="btn btn-xs btn-primary unFriend">Unfriend</button></span></h5>
+          <button data-friendship-id="<%=friendship.id%>" class="btn btn-xs btn-primary unFriend">Delete</button></span></h5>
         <p class="list-group-item-text"><small>Email: <%=friendship.friend.email %></small></p>
         <p class="list-group-item-text"><small>Phone: <%=friendship.friend.phone %></small></p>
       </a>
