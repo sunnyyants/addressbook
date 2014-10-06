@@ -6,7 +6,7 @@
           <%if @user.errors.any? %>
               <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">
-          &times;</span><span class="sr-only">Close</span></button>
+          &times</span><span class="sr-only">Close</span></button>
                 <h2>From is invalid</h2>
                 <ul>
                   <% @user.errors.full_messages.each do |message| %>

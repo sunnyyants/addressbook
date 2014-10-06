@@ -21,7 +21,7 @@
     <div class="col-md-6">
       <div>
         <legend>Search Contacts</legend>
-        <%=form_tag users_path, class:"form group", id: "searchForm",:method => 'get' do%>
+        <%=form_tag users_path, class: "form group", id: "searchForm",:method => 'get' do%>
             <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search contacts..." , id: "contacts"%>
         <% end %>
       </div>
@@ -36,5 +36,4 @@
       </div>
     </div>
   </div>
-
 </div>
