@@ -74,7 +74,7 @@ class UsersController < ApplicationController
 
   def get_friendships
     if current_user
-      @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
+      @current_friendships = current_user.friendships.paginate(:per_page => 5, :page => params[:page])
     else
       redirect_to signin_path
     end

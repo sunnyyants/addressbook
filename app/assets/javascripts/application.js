@@ -60,7 +60,6 @@ $(document).ready(function(){
             $.get(url, valueToSubmit, null, "script");
         }else{
             $("#results").empty();
-            $('#current_userName').empty()
         }
         return false;
     });
@@ -87,7 +86,12 @@ $(document).ready(function(){
             type:'POST',
             success:function(data){
                 renderFriends(data);
-                reloadSearch();
+                if($('#contacts').val().length > 0){
+                    reloadSearch();
+                }
+                else{
+                    $("#results").empty();
+                }
             }
         })
     });
