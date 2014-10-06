@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>AddressBook</title>
+  <%= include_gon(:init =>true)%>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' 'jquery'=> true %>
   <%= csrf_meta_tags %>
@@ -21,7 +22,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-            <li><a>Welcome: <%=current_user.name%></a></li>
+            <li><a>Welcome:<span id="nav_name"><%=current_user.name%></span></a></li>
             <li><%=link_to "Sign out", signout_path%></li>
         <%end%>
       </ul>

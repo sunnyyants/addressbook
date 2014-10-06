@@ -60,6 +60,7 @@ $(document).ready(function(){
             $.get(url, valueToSubmit, null, "script");
         }else{
             $("#results").empty();
+            $('#current_userName').empty()
         }
         return false;
     });
@@ -90,12 +91,24 @@ $(document).ready(function(){
             }
         })
     });
+
+    $(document).on("change",'.best_in_place', function(){
+        var username = $('#current_userName').find('input').val();
+        var useremail = $('#current_userEmail').find('input').val();
+        var userphone = $('#current_userPhone').find('input').val();
+        $('#nav_name').text(username);
+        $('#info_name').text(username);
+        $('#info_email').text(useremail);
+        $('#info_phone').text(userphone);
+    });
 });
 
 function close_box(){
-    $('.backdrop,  #searchBox').animate({'opacity':'0'}, 300, 'linear', function(){
-        $('.backdrop,  #searchBox').css('display', 'none');
+    var $lightboxes = $('.backdrop, #searchBox');
+    $lightboxes.animate({'opacity':'0'}, 300, 'linear', function(){
+        $lightboxes.css('display', 'none');
     });
+
 }
 
 function renderFriends(data){
@@ -110,3 +123,4 @@ function reloadSearch (){
     var reflashUrl = $searchInput.closest('form').attr('action');
     $.get(reflashUrl, reflashValue, null, "script");
 }
+
