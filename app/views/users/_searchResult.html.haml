@@ -1,0 +1,41 @@
+- if @users
+  %div
+    .list-group
+      - @users.each do |user|
+        - if user.id == current_user.id
+          %a.list-group-item{"data-user-id" => user.id, :href => "#"}
+            %h5.list-group-item-heading
+              = best_in_place @user, :name, :id =>'current_userName'
+              %small -- Me
+            %p.list-group-item-text
+              %small
+                Email: #{best_in_place @user, :email, :id =>'current_userEmail'}
+            %p.list-group-item-text
+              %small
+                Phone: #{best_in_place @user,:phone, :id =>'current_userPhone'}
+        - else
+          - if @users_friends.include? user.id
+            %a.list-group-item
+              %h5.list-group-item-heading
+                = user.name
+                %small -- Friend
+              %p.list-group-item-text
+                %small
+                  Email: #{user.email}
+              %p.list-group-item-text
+                %small
+                  Phone: #{user.phone}
+          - else
+            %a.list-group-item
+              %h5.list-group-item-heading
+                = user.name
+                %span.pull-right
+                  %button.btn.btn-xs.btn-primary.addFriend{"data-friend-id" => user.id} Add
+              %p.list-group-item-text
+                %small
+                  Email: #{user.email}
+              %p.list-group-item-text
+                %small
+                  Phone: #{user.phone}
+    .col-md-12
+      = will_paginate @users, class:"flickr_pagination"

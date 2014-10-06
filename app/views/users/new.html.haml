@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      %h2.form-signin-heading Sign up
+      = form_for(@user, class:"form group", role:"form") do |f|
+        - if @user.errors.any?
+          .alert.alert-danger
+            %button.close{"data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"}
+                \×
+              %span.sr-only Close
+            %h2 From is invalid
+            %ul
+              - @user.errors.full_messages.each do |message|
+                %li= message
+        .field
+          .form-group= f.text_field(:name, class:"form-control", placeholder:"Name")
+        .form-group
+          = f.password_field(:password, class:"form-control", placeholder:"Password")
+        .form-group
+          = f.password_field(:password_confirmation, class:"form-control", placeholder:"Password Comfirmation")
+        .form-group
+          = f.text_field(:email, class:"form-control", placeholder:"Email Address")
+        .form-group
+          = f.text_field(:phone, class:"form-control", placeholder:"Phone Number")
+        .col-md-6= f.submit("Sign up", class:"btn btn-block btn-primary")
+        .col-md-6= link_to "Back", root_url, class:"btn btn-block btn-primary btn-block"

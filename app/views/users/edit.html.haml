@@ -1,0 +1,33 @@
+/ <div class="container">
+/ <div class="row">
+/ <div class="col-md-6 col-md-offset-3">
+/ <h2 class="form-signin-heading">Update Info</h2>
+/ <haml_loud>form_for(@user, class:"form group", role:"form") do |f| </haml_loud><haml_block>
+/ <haml_silent>if @user.errors.any? </haml_silent><haml_block>
+/ <div class="alert alert-danger">
+/ <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">
+/ ×</span><span class="sr-only">Close</span></button>
+/ <h2>From is invalid</h2>
+/ <ul>
+/ <haml_silent> @user.errors.full_messages.each do |message| </haml_silent><haml_block>
+/ <li><haml_loud> message </haml_loud></li>
+/ </haml_block>
+/ </ul>
+/ </div>
+/ </haml_block>
+/ <div class="field">
+/ <div class="form-group">
+/ <haml_loud> f.text_field(:name, class:"form-control", placeholder:"Name") </haml_loud>
+/ </div>
+/ </div>
+/ <div class="form-group">
+/ <haml_loud> f.text_field(:email, class:"form-control", placeholder:"Email Address")</haml_loud>
+/ </div>
+/ <div class="form-group">
+/ <haml_loud> f.text_field(:phone, class:"form-control", placeholder:"Phone Number")</haml_loud>
+/ </div>
+/ <haml_loud>f.submit("Update", class:"btn btn-block btn-primary")</haml_loud>
+/ </haml_block>
+/ </div>
+/ </div>
+/ </div>

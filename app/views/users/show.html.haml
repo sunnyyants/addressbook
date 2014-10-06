@@ -1,0 +1,30 @@
+.container
+  .col-md-8.col-md-offset-2
+    %h1.text-center User Information
+    .list-group
+      %a.list-group-item{:href => "#"}
+        %strong Name:
+        %span#info_name= @user.name
+      %a.list-group-item{:href => "#"}
+        %strong Email:
+        %span#info_email= @user.email
+      %a.list-group-item{:href => "#"}
+        %strong Phone:
+        %span#info_phone= @user.phone
+  .col-md-8.col-md-offset-2.text-center
+    %button#searchNow.btn.btn-default{:style => "width: 30%; height:30%; margin-top:10%"}
+      %p.lead.text-center Click me start!
+  .backdrop
+  #searchBox
+    .close.col-md-12 x
+    .col-md-6
+      %div
+        %legend Search Contacts
+        = form_tag users_path, class:"form group", id: "searchForm",:method => 'get' do
+          = text_field_tag :search, params[:search], class:"form-control", placeholder:"Search contacts..." , id: "contacts"
+      #results
+        = render "searchResult"
+    .col-md-6
+      %legend My friends
+      #friends
+        = render "friends"
