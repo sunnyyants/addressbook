@@ -4,9 +4,9 @@
         <% @users.each do |user| %>
             <% if user.id == current_user.id %>
                 <a href="#" class="list-group-item" id="bbb" data-user-id="<%=user.id%>">
-                  <h5 class="list-group-item-heading"><%= user.name %> <small>-Current User</small></h5>
-                  <p class="list-group-item-text"><small>Email: <%= user.email %></small></p>
-                  <p class="list-group-item-text"><small>Phone: <%= user.phone %></small></p>
+                  <h5 class="list-group-item-heading"><%=best_in_place @user, :name %> <small>-Current User</small></h5>
+                  <p class="list-group-item-text"><small>Email: <%=best_in_place @user, :email %></small></p>
+                  <p class="list-group-item-text"><small>Phone: <%=best_in_place @user,:phone %></small></p>
                 </a>
             <% else %>
                 <a  class="list-group-item">
