@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   before_action :return_current_users_friends, only: [:index]
 
-  before_filter :require_login, only: [:update, :edit,:index,:update]
+  before_filter :require_login, only: [:update, :edit,:index, :show]
 
   def new
     @user = User.new
@@ -73,7 +73,11 @@ class UsersController < ApplicationController
   end
 
   def get_friendships
-    @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
+    if current_user
+      @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
+    else
+      redirect_to signin_path
+    end
   end
 
 end
