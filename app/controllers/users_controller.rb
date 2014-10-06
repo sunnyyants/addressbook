@@ -8,8 +8,6 @@ class UsersController < ApplicationController
 
   before_filter :require_login, only: [:update, :edit,:index,:update]
 
-  after_action :def_gon_variables, only: [:update]
-
   def new
     @user = User.new
   end
@@ -66,7 +64,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def user_params
     params.require(:user).permit(:name, :email, :password, :phone)
   end
@@ -77,12 +74,6 @@ class UsersController < ApplicationController
 
   def get_friendships
     @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
-  end
-
-  def def_gon_variables
-    gon.currentUserName = @user.name
-    gon.currentUserEmail = @user.email
-    gon.currentUserPhone = @user.phone
   end
 
 end
