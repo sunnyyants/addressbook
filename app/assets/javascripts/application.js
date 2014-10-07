@@ -105,12 +105,22 @@ $(document).ready(function(){
         $('#info_email').text(useremail);
         $('#info_phone').text(userphone);
     });
+
+    $(document).on('click','.user_image', function(){
+        $('#updateImage').find('input').click();
+    });
+
+    $(document).on('change','#updateImage input', function(){
+        $(this).closest('form').submit();
+    });
+
 });
 
 function close_box(){
     var $lightboxes = $('.backdrop, #searchBox');
     $lightboxes.animate({'opacity':'0'}, 300, 'linear', function(){
         $lightboxes.css('display', 'none');
+        $('#info_friendsNum').text($('#frienshipsNum').text());
     });
 
 }
@@ -118,7 +128,7 @@ function close_box(){
 function renderFriends(data){
     var $response = $(data);
     var $friends = $response.filter("div.container").find('#friends')[0];
-    $('#friends').html($friends)
+    $('#friends').html($friends);
 }
 
 function reloadSearch (){

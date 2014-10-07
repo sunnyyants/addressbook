@@ -62,6 +62,7 @@ class UsersController < ApplicationController
     @user.friendships.each do |f|
       @users_friends.append(f.friend.id)
     end
+    @users_friends_number = @users_friends.length
   end
 
   def user_params

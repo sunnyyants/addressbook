@@ -1,10 +1,14 @@
 - if @users
-  %div
+  %div#outcome
+    %span#frienshipsNum(style="display:none")
+      = @users_friends_number
     .list-group
       - @users.each do |user|
         - if user.id == current_user.id
           %a.list-group-item{"data-user-id" => user.id, :href => "#"}
-            =image_tag @user.image_url(:tiny).to_s, class:"img-rounded",style: "float:left; margin-right: 8px"
+            =image_tag @user.image_url(:tiny).to_s, class:"img-rounded user_image",style: "float:left; margin-right: 8px", data:{user_id: user.id}
+            =form_for(@user, :html => {:multipart => true},style: "display:none", role:"form") do |f|
+              #updateImage(style="display:none")= f.file_field(:image)
             %h5.list-group-item-heading
               = best_in_place @user, :name, :id =>'current_userName'
               %small -- Me (Click file update..)
