@@ -1,10 +1,11 @@
 .list-group
   - @current_friendships.each do |friendship|
     %a.list-group-item
+      =image_tag friendship.friend.image_url(:tiny).to_s, class:"img-rounded",style: "float:left; margin-right: 5px"
       %h5.list-group-item-heading
         = friendship.friend.name
         %span.pull-right
-          %button.btn.btn-xs.btn-primary.unFriend{"data-friendship-id" => friendship.id} Delete
+          %button.btn.btn-xs.btn-danger.unFriend{"data-friendship-id" => friendship.id} Delete
       %p.list-group-item-text
         %small
           Email: #{friendship.friend.email}

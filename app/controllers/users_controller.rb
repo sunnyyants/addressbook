@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   before_action :get_friendships, only: [:show]
 
-  before_action :return_current_users_friends, only: [:index]
+  before_action :return_current_users_friends, only: [:index,:show]
 
   before_filter :require_login, only: [:update, :edit,:index, :show]
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:search]
-      @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 6, :page => params[:page])
+      @users = User.where('name LIKE?', "%#{params[:search]}%").paginate(:per_page => 5, :page => params[:page])
     else
       @users = []
     end
@@ -65,16 +65,16 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :phone)
+    params.require(:user).permit(:name, :email, :password, :phone, :image)
   end
 
   def user_params_without_password
-    params.require(:user).permit(:name,:email,:phone)
+    params.require(:user).permit(:name,:email,:phone,:image)
   end
 
   def get_friendships
     if current_user
-      @current_friendships = current_user.friendships.paginate(:per_page => 5, :page => params[:page])
+      @current_friendships = current_user.friendships.paginate(:per_page => 6, :page => params[:page])
     else
       redirect_to signin_path
     end

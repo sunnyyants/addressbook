@@ -4,9 +4,10 @@
       - @users.each do |user|
         - if user.id == current_user.id
           %a.list-group-item{"data-user-id" => user.id, :href => "#"}
+            =image_tag @user.image_url(:tiny).to_s, class:"img-rounded",style: "float:left; margin-right: 8px"
             %h5.list-group-item-heading
               = best_in_place @user, :name, :id =>'current_userName'
-              %small -- Me
+              %small -- Me (Click file update..)
             %p.list-group-item-text
               %small
                 Email: #{best_in_place @user, :email, :id =>'current_userEmail'}
@@ -16,6 +17,7 @@
         - else
           - if @users_friends.include? user.id
             %a.list-group-item
+              =image_tag user.image_url(:tiny).to_s, class:"img-rounded",style: "float:left; margin-right: 8px"
               %h5.list-group-item-heading
                 = user.name
                 %small -- Friend
@@ -27,10 +29,11 @@
                   Phone: #{user.phone}
           - else
             %a.list-group-item
+              =image_tag user.image_url(:tiny).to_s, class:"img-rounded",style: "float:left; margin-right: 8px"
               %h5.list-group-item-heading
                 = user.name
                 %span.pull-right
-                  %button.btn.btn-xs.btn-primary.addFriend{"data-friend-id" => user.id} Add
+                  %button.btn.btn-xs.btn-success.addFriend{"data-friend-id" => user.id} Add
               %p.list-group-item-text
                 %small
                   Email: #{user.email}

@@ -2,7 +2,7 @@
   .row
     .col-md-6.col-md-offset-3
       %h2.form-signin-heading Sign up
-      = form_for(@user, class:"form group", role:"form") do |f|
+      = form_for(@user, :html => {:multipart => true}, class:"form group", role:"form") do |f|
         - if @user.errors.any?
           .alert.alert-danger
             %button.close{"data-dismiss" => "alert", :type => "button"}
@@ -13,8 +13,11 @@
             %ul
               - @user.errors.full_messages.each do |message|
                 %li= message
-        .field
-          .form-group= f.text_field(:name, class: "form-control", placeholder: "Name")
+
+        .form-group
+          %span.btn.btn-file= f.file_field(:image)
+        .form-group
+          = f.text_field(:name, class: "form-control", placeholder: "Name")
         .form-group
           = f.password_field(:password, class: "form-control", placeholder: "Password")
         .form-group
